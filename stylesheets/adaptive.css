@@ -1,0 +1,216 @@
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}
+
+@media (min-width: 701px) {
+  .instrument {
+    --x: calc(100vw / 1280);
+    --y: calc(max(640px, 100svh) / 832);
+    --u: min(var(--x), var(--y));
+    width: calc(1180 * var(--x));
+    height: calc(720 * var(--y));
+    margin: calc(62 * var(--y)) auto calc(50 * var(--y));
+    gap: calc(20 * var(--x));
+    font-size: calc(20 * var(--u));
+    line-height: calc(24 * var(--y));
+  }
+  .voice {
+    height: 100%;
+    padding-top: calc(40 * var(--y));
+    min-width: 0;
+  }
+  .wave-title {
+    top: calc(-2 * var(--y));
+    font-size: calc(20 * var(--u));
+    line-height: calc(24 * var(--y));
+  }
+  .voice-panel {
+    position: relative;
+    height: calc(680 * var(--y));
+    padding: calc(19 * var(--y)) calc(24 * var(--x)) 0;
+    border-radius: calc(32 * var(--u));
+  }
+  .wave-buttons {
+    height: calc(106 * var(--y));
+    grid-template-rows: repeat(2, calc(46 * var(--y)));
+    column-gap: calc(11 * var(--x));
+    row-gap: calc(14 * var(--y));
+  }
+  .wave-buttons button,
+  .wave-link button {
+    padding: 0;
+    border-radius: calc(24 * var(--u));
+    letter-spacing: calc(-0.7 * var(--u));
+  }
+  .horizontal-controls {
+    position: absolute;
+    left: calc(24 * var(--x));
+    right: calc(24 * var(--x));
+    top: calc(146 * var(--y));
+    margin: 0;
+    gap: calc(30 * var(--y));
+  }
+  .horizontal-control {
+    height: calc(24 * var(--y));
+    grid-template-columns: minmax(0, 1fr) calc(74 * var(--x));
+    gap: calc(22 * var(--x));
+  }
+  .instrument input[type="range"] {
+    height: calc(24 * var(--y));
+  }
+  .instrument input[type="range"]::-webkit-slider-runnable-track {
+    height: calc(3 * var(--u));
+  }
+  .instrument input[type="range"]::-moz-range-track {
+    height: calc(3 * var(--u));
+  }
+  .instrument input[type="range"]::-webkit-slider-thumb {
+    width: calc(19 * var(--u));
+    height: calc(19 * var(--u));
+    margin-top: calc(-8 * var(--u));
+  }
+  .instrument input[type="range"]::-moz-range-thumb {
+    width: calc(19 * var(--u));
+    height: calc(19 * var(--u));
+  }
+  .vertical-controls {
+    position: absolute;
+    left: calc(20 * var(--x));
+    top: calc(400 * var(--y));
+    width: calc(312 * var(--x));
+    margin: 0;
+    gap: 0;
+  }
+  /* Исправленный макет: три регулятора справа центрируются по панели. */
+  .voice-two .vertical-controls {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .vertical-control {
+    gap: calc(17 * var(--y));
+  }
+  .instrument .vertical-control input {
+    width: calc(24 * var(--u));
+    height: calc(156 * var(--y));
+  }
+  .instrument .vertical-control input::-webkit-slider-runnable-track {
+    width: calc(3 * var(--u));
+    height: 100%;
+  }
+  .instrument .vertical-control input::-moz-range-track {
+    width: calc(3 * var(--u));
+    height: 100%;
+  }
+  .instrument .vertical-control input::-webkit-slider-thumb {
+    margin: 0 0 0 calc(-8 * var(--u));
+  }
+  .vertical-control output {
+    margin: 0;
+  }
+  .master {
+    height: 100%;
+    padding-top: calc(73 * var(--y));
+  }
+  .synk {
+    position: absolute;
+    top: calc(444 * var(--y));
+    left: calc(24 * var(--x));
+    right: calc(24 * var(--x));
+    margin: 0;
+  }
+  .volume-label {
+    margin-bottom: calc(12 * var(--y));
+  }
+  .volume-shell {
+    height: calc(56 * var(--y));
+    border-radius: calc(32 * var(--u));
+    padding: calc(16 * var(--y)) calc(35 * var(--x));
+    display: flex;
+    align-items: center;
+  }
+  .wave-link {
+    height: calc(84 * var(--y));
+    padding: calc(20 * var(--y)) calc(25 * var(--x)) calc(18 * var(--y));
+    border-radius: calc(32 * var(--u));
+    margin-top: calc(26 * var(--y));
+    gap: calc(11 * var(--x));
+  }
+  .status {
+    top: calc(430 * var(--y));
+    font-size: calc(13 * var(--u));
+  }
+}
+
+@media (max-width: 700px) {
+  .instrument {
+    width: min(390px, calc(100% - 32px));
+    margin: 28px auto;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  .master {
+    grid-row: 1;
+    height: auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+  }
+  .synk {
+    width: min(260px, 100%);
+    margin: 0 auto;
+    align-self: center;
+  }
+  .master-bottom {
+    position: static;
+    width: 100%;
+  }
+  .volume-label {
+    font-size: 16px;
+  }
+  .wave-link {
+    margin-top: 14px;
+    padding: 14px 20px;
+  }
+  .status {
+    position: static;
+    width: 100%;
+  }
+  .status:empty {
+    display: none;
+  }
+  .voice {
+    padding-top: 34px;
+  }
+  .horizontal-controls {
+    margin-top: 24px;
+  }
+  .vertical-controls {
+    margin-top: 48px;
+  }
+}
+
+@media (min-width: 701px) {
+  .cassette {
+    --reel-unit: var(--u);
+  }
+  .cassette-screw {
+    top: calc(80 * var(--y));
+    font-size: calc(30 * var(--u));
+    line-height: calc(30 * var(--u));
+  }
+  .screw-left {
+    left: calc(24 * var(--x));
+  }
+  .screw-right {
+    right: calc(24 * var(--x));
+  }
+}
+@media (max-width: 700px) {
+  .cassette-screw {
+    top: 12px;
+  }
+}

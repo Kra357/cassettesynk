@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="stylesheets/style.css?v=27" />
+    <link rel="icon" href="img/icon.svg" type="image/svg+xml" />
+    <script src="audio.js?v=27" defer></script>
+    <script src="script.js?v=27" defer></script>
+    <title>synk — two voices</title>
+  </head>
+  <body>
+    <main class="instrument" aria-label="Музыкальный инструмент synk">
+      <section class="voice voice-one" data-voice="0" aria-label="Voice 1">
+        <h2 class="wave-title">wave</h2>
+        <div class="voice-panel">
+          <div
+            class="wave-buttons"
+            role="group"
+            aria-label="Форма волны голоса 1"
+          >
+            <button
+              data-wave="triangle"
+              aria-pressed="false"
+              title="Voice 1: triangle"
+            >
+              triangle
+            </button>
+            <button
+              data-wave="square"
+              aria-pressed="false"
+              title="Voice 1: square"
+            >
+              square
+            </button>
+            <button
+              data-wave="pulse"
+              aria-pressed="false"
+              title="Voice 1: pulse"
+            >
+              pulse
+            </button>
+            <button
+              data-wave="sawtooth"
+              aria-pressed="false"
+              title="Voice 1: sawtooth"
+            >
+              sawtooth
+            </button>
+          </div>
+          <div class="horizontal-controls">
+            <label class="horizontal-control"
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="sustain"
+                aria-label="Voice 1 sustain"
+              /><span>sustain</span></label
+            >
+            <label class="horizontal-control"
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="filter"
+                aria-label="Voice 1 filter"
+              /><span>filter</span></label
+            >
+            <label class="horizontal-control"
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="chorus"
+                aria-label="Voice 1 chorus"
+              /><span>chorus</span></label
+            >
+            <label class="horizontal-control"
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="delay"
+                aria-label="Voice 1 delay"
+              /><span>delay</span></label
+            >
+          </div>
+          <div class="vertical-controls">
+            <label class="vertical-control"
+              ><span>attack</span
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="attack"
+                aria-label="Voice 1 attack"
+              /><output data-output="attack">0.00</output></label
+            >
+            <label class="vertical-control"
+              ><span>distortion</span
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="distortion"
+                aria-label="Voice 1 distortion"
+              /><output data-output="distortion">0.00</output></label
+            >
+            <label class="vertical-control"
+              ><span>release</span
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="release"
+                aria-label="Voice 1 release"
+              /><output data-output="release">0.00</output></label
+            >
+          </div>
+        </div>
+      </section>
+      <section class="master" aria-label="Общее управление">
+        <span class="cassette-screw screw-left" aria-hidden="true">+</span>
+        <span class="cassette-screw screw-right" aria-hidden="true">+</span>
+        <div class="cassette">
+          <button
+            class="transport"
+            aria-label="Начать воспроизведение"
+            aria-pressed="false"
+          >
+            <span class="play-icon" aria-hidden="true"></span>
+          </button>
+          <div class="cassette-reel" aria-hidden="true">
+            <span class="reel-hub">+</span>
+          </div>
+          <svg class="cassette-tape" viewBox="0 0 154 284" aria-hidden="true">
+            <circle cx="77" cy="70" r="50" />
+            <circle cx="77" cy="227" r="36" />
+            <path d="M27 70 L41 227 M127 70 L113 227" />
+          </svg>
+        </div>
+        <div class="synk">
+          <span id="beat-0">1</span><span>synk</span><span id="beat-1">2</span>
+        </div>
+        <div class="master-bottom">
+          <label class="volume-label" for="master-volume">volume</label>
+          <div class="volume-shell">
+            <input
+              id="master-volume"
+              type="range"
+              min="0"
+              max="1"
+              step="0.01"
+              value="0"
+              aria-label="Общая громкость"
+            />
+          </div>
+          <div
+            class="wave-link"
+            role="group"
+            aria-label="Модуляция общей громкости"
+          >
+            <button
+              data-wave="triangle"
+              aria-pressed="false"
+              title="Модуляция общей громкости: triangle"
+            >
+              triangle
+            </button>
+            <button
+              data-wave="square"
+              aria-pressed="false"
+              title="Модуляция общей громкости: square"
+            >
+              square
+            </button>
+            <button
+              data-wave="pulse"
+              aria-pressed="false"
+              title="Модуляция общей громкости: pulse"
+            >
+              pulse
+            </button>
+          </div>
+        </div>
+        <p class="status" role="status" aria-live="polite"></p>
+      </section>
+      <section class="voice voice-two" data-voice="1" aria-label="Voice 2">
+        <h2 class="wave-title">wave</h2>
+        <div class="voice-panel">
+          <div
+            class="wave-buttons"
+            role="group"
+            aria-label="Форма волны голоса 2"
+          >
+            <button
+              data-wave="triangle"
+              aria-pressed="false"
+              title="Voice 2: triangle"
+            >
+              triangle
+            </button>
+            <button
+              data-wave="square"
+              aria-pressed="false"
+              title="Voice 2: square"
+            >
+              square
+            </button>
+            <button
+              data-wave="pulse"
+              aria-pressed="false"
+              title="Voice 2: pulse"
+            >
+              pulse
+            </button>
+            <button
+              data-wave="sawtooth"
+              aria-pressed="false"
+              title="Voice 2: sawtooth"
+            >
+              sawtooth
+            </button>
+          </div>
+          <div class="horizontal-controls">
+            <label class="horizontal-control"
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="sustain"
+                aria-label="Voice 2 sustain"
+              /><span>sustain</span></label
+            >
+            <label class="horizontal-control"
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="filter"
+                aria-label="Voice 2 filter"
+              /><span>filter</span></label
+            >
+            <label class="horizontal-control"
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="chorus"
+                aria-label="Voice 2 chorus"
+              /><span>chorus</span></label
+            >
+            <label class="horizontal-control"
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="delay"
+                aria-label="Voice 2 delay"
+              /><span>delay</span></label
+            >
+          </div>
+          <div class="vertical-controls">
+            <label class="vertical-control"
+              ><span>attack</span
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="attack"
+                aria-label="Voice 2 attack"
+              /><output data-output="attack">0.00</output></label
+            >
+            <label class="vertical-control"
+              ><span>distortion</span
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="distortion"
+                aria-label="Voice 2 distortion"
+              /><output data-output="distortion">0.00</output></label
+            >
+            <label class="vertical-control"
+              ><span>release</span
+              ><input
+                type="range"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0"
+                data-param="release"
+                aria-label="Voice 2 release"
+              /><output data-output="release">0.00</output></label
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
